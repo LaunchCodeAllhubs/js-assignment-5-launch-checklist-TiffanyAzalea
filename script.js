@@ -1,11 +1,10 @@
 // Write your JavaScript code here!
 
 
-
 window.addEventListener("load", function() {
     const launchForm = document.querySelector('form');
 
-const list = document.getElementById("faultyItems");
+    const list = document.getElementById("faultyItems");
 
 launchForm.addEventListener("submit", function(event) {
     const pilot = document.querySelector('input[name=pilotName]').value;
@@ -24,14 +23,15 @@ launchForm.addEventListener("submit", function(event) {
    let listedPlanetsResponse = myFetch();
    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
-       console.log(listedPlanets);
+       //console.log(listedPlanets);
    }).then(function () {
-       console.log(listedPlanets);
+      // console.log(listedPlanets);
 
-       //code goes for pciking planet //only one line of code
-       // call adddestinantioninfo() // one line of code
-       //that it for thi function
+      let planet = pickPlanet(listedPlanets);
+      console.log(planet);
        
+       addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)// call adddestinantioninfo() // one line of code
+    
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
     
     })
@@ -39,16 +39,6 @@ launchForm.addEventListener("submit", function(event) {
 
     
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
